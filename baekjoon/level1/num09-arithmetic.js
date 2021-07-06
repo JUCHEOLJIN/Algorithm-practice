@@ -15,5 +15,6 @@ let B = parseInt(input[1]);
 console.log(A + B);
 console.log(A - B);
 console.log(A * B);
-console.log(Math.floor(A / B)); // 소수점을 정수로 변환하는 방식으로 사용
+console.log(Math.floor(A / B)); // parseInt -> Math.floor 수정
+// parseInt는 parameter로 string을 받기 때문에, Math.floor() method가 낫다고 판단.
 console.log(A % B);
