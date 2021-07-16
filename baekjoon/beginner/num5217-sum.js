@@ -17,7 +17,7 @@ let inputBeak = "4\n2\n7\n6\n3";
 let input = inputBeak.trim().split("\n");
 let inputsArray = [];
 
-function makeArray(number, newNumber, input) {
+function makeArray(number, input) {
   // 입력된 자연수를 만드는 쌍들의 배열 만드는 함수
   for (let i = 1; i < input; i++) {
     if (input / i === 2) {
@@ -49,19 +49,19 @@ function sortArray(array) {
   inputsArray.sort((a, b) => a - b);
 }
 
-function injectResult(array, array2, i, result) {
+function injectResult(inputArray, numberArray, result) {
   // 콘솔로그 출력 하기
-  for (let j = 0; j < array2.length; j++) {
-    if (array2.length === 0) {
+  for (let j = 0; j < numberArray.length; j++) {
+    if (numberArray.length === 0) {
       result += "";
     }
-    if (array2.length - 1 === j) {
-      result += `${array2[j]}`;
+    if (numberArray.length - 1 === j) {
+      result += `${numberArray[j]}`;
     } else {
-      result += `${array2[j]}, `;
+      result += `${numberArray[j]}, `;
     }
   }
-  console.log(`Pairs for ${array}: ${result}`);
+  console.log(`Pairs for ${inputArray}: ${result}`);
 }
 
 function printResult(inputarray) {
@@ -70,10 +70,9 @@ function printResult(inputarray) {
     let numbers = [];
     let newNumbers = [];
     let result = "";
-    makeArray(numbers, newNumbers, inputarray[i]);
+    makeArray(numbers, inputarray[i]);
     combineNum(numbers, newNumbers);
-    injectResult(inputarray[i], newNumbers, i, result);
-    // console.log(newNumbers);
+    injectResult(inputarray[i], newNumbers, result);
   }
 }
 
