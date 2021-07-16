@@ -49,7 +49,7 @@ function sortArray(array) {
   inputsArray.sort((a, b) => a - b);
 }
 
-function injectResult(inputArray, numberArray, result) {
+function makeResult(inputArray, numberArray, result) {
   // 콘솔로그 출력 하기
   for (let j = 0; j < numberArray.length; j++) {
     if (numberArray.length === 0) {
@@ -72,7 +72,7 @@ function printResult(inputarray) {
     let result = "";
     makeArray(numbers, inputarray[i]);
     combineNum(numbers, newNumbers);
-    injectResult(inputarray[i], newNumbers, result);
+    makeResult(inputarray[i], newNumbers, result);
   }
 }
 
