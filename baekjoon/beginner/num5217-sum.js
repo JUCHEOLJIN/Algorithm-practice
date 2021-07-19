@@ -13,10 +13,13 @@
 // const fs = require("fs");
 // const input = fs.readFileSync("./dev/stdin").toString().trim().split('\n');
 
-let inputBeak = "4\n2\n7\n6\n3";
-let input = inputBeak.trim().split("\n");
-let inputsArray = [];
+let inputBeak = "4\n2\n3\n4\n5";
+let input = inputBeak
+  .trim()
+  .split("\n")
+  .map((x) => +x);
 
+let caseNum = input[0];
 function makeArray(number, input) {
   // 입력된 자연수를 만드는 쌍들의 배열 만드는 함수
   for (let i = 1; i < input; i++) {
@@ -39,17 +42,7 @@ function combineNum(array, newArray) {
   }
 }
 
-function sortArray(array) {
-  // 입력값의 중복을 제거하고 작은 순으로 정렬하는 함수
-  for (let i = 0; i < array.length; i++) {
-    if (inputsArray.indexOf(array[i]) === -1) {
-      inputsArray.push(array[i]);
-    }
-  }
-  inputsArray.sort((a, b) => a - b);
-}
-
-function makeResult(inputArray, numberArray, result) {
+function makeResult(input, numberArray, result) {
   // 콘솔로그 출력 하기
   for (let j = 0; j < numberArray.length; j++) {
     if (numberArray.length === 0) {
@@ -61,20 +54,19 @@ function makeResult(inputArray, numberArray, result) {
       result += `${numberArray[j]}, `;
     }
   }
-  console.log(`Pairs for ${inputArray}: ${result}`);
+  console.log(`Pairs for ${input}: ${result}`);
 }
 
-function printResult(inputarray) {
+function printResult(input) {
   // 최종 출력값을 내보내는 함수
-  for (let i = 0; i < inputarray.length; i++) {
+  for (let i = 1; i < input.length; i++) {
     let numbers = [];
     let newNumbers = [];
     let result = "";
-    makeArray(numbers, inputarray[i]);
+    makeArray(numbers, input[i]);
     combineNum(numbers, newNumbers);
-    makeResult(inputarray[i], newNumbers, result);
+    makeResult(input[i], newNumbers, result);
   }
 }
 
-sortArray(input);
-printResult(inputsArray);
+printResult(input);
