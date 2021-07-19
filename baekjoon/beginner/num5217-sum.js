@@ -70,3 +70,19 @@ function printResult(input) {
 }
 
 printResult(input);
+
+// let output = "";
+
+// let n = +input[0]; // 첫번째 입력값은 출력값에 반영 안되니까(테스트 케이스의 수여서) 첫번째 값은 버린다
+// for(let i=1; i<=n; i++){ // 첫번째 입력값 만큼 input을 받았기에 해당 갯수만큼 돌린다
+// 	const c = input[i];   // input의 첫번째 테스트케이스부터 순서대로 돌린다
+
+// 	let arr = [];
+// 	for(let j=1; j<c-j; j++){
+// 		arr.push([j, c-j]); // 3 -> [1, 2] , 4 -> [1, 3]
+// 	}
+
+//     output += `Pairs for ${c}: ${arr.map(x => x.join(" ")).join(', ')}\n`
+// }
+// console.log(output);
+// 참고하면 좋을 코드. 내장되어 있는 join()을 이용해서 심플하게 구성했다.
