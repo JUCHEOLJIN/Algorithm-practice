@@ -18,31 +18,59 @@
 // 입력은 없다.
 // 출력
 // 10,000보다 작거나 같은 셀프 넘버를 한 줄에 하나씩 증가하는 순서로 출력한다.
+// let solResult = "";
 
-function d(n, limit, array) {
+// function d(n, limit, array) {
+//   let N = String(n);
+//   let result = Number(n);
+//   if (result > limit) {
+//     return;
+//   }
+//   for (let i = 0; i < N.length; i++) {
+//     result += Number(N[i]);
+//   }
+//   array.push(result);
+//   d(result, limit, array);
+// }
+
+// function solution(number) {
+//   let array = [...Array(number)].map((a, i) => i + 1);
+//   let noSelfNumber = [];
+//   for (let i = 1; i < array.length; i++) {
+//     d(i, array.length, noSelfNumber);
+//   }
+//   for (let i = 0; i < array.length; i++) {
+//     if (noSelfNumber.indexOf(array[i]) === -1) {
+//       solResult += array[i].toString();
+//       solResult += "\n";
+//     }
+//   }
+//   console.log(solResult);
+// }
+
+// solution(10000);
+// 제출 결과는 시간초과... 답은 잘 나오지만 오래 걸린다. 개선할 방법 고민중.
+
+function d(n) {
   let N = String(n);
   let result = Number(n);
-  if (result > limit) {
-    return;
-  }
   for (let i = 0; i < N.length; i++) {
     result += Number(N[i]);
   }
-  array.push(result);
-  d(result, limit, array);
+  return result;
 }
 
-function solution(number) {
-  let array = [...Array(number)].map((a, i) => i + 1);
-  let noSelfNumber = [];
-  for (let i = 1; i < array.length; i++) {
-    d(i, array.length, noSelfNumber);
-  }
-  for (let i = 0; i < array.length; i++) {
-    if (noSelfNumber.indexOf(array[i]) === -1) {
-      console.log(array[i]);
+function solution(range) {
+  let selfNumber = [...Array(range)].map(() => true);
+  for (let i = 1; i < range; i++) {
+    selfNumber[d(i)] = false;
+    if (selfNumber[i]) {
+      console.log(i);
     }
   }
 }
 
-solution(10000); // 제출 결과는 시간초과... 답은 잘 나오지만 오래 걸린다. 개선할 방법 고민중.
+solution(10000);
+
+// 개선한 방법. 이전의 방법은 너무 많은 경우의 수를 연산해야했음.
+// boolean 값을 통해서 인덱스를 출력하도록 변경. 훨씬 개선된 연산 속도를 보임.
