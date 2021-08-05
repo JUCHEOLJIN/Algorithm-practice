@@ -11,7 +11,7 @@
 const fs = require("fs");
 const input = fs.readFileSync("./dev/stdin").toString().trim().split("\n");
 
-function getGatherNumber(paragraph, count) {
+function getVowelNumber(paragraph, count) {
   // 모음의 수를 출력하는 함수
   for (let i = 0; i < paragraph.length; i++) {
     switch (paragraph[i]) {
@@ -46,5 +46,5 @@ for (let i = 0; i < input.length; i++) {
   if (input[i] === "#") {
     break;
   }
-  getGatherNumber(input[i], countWord);
+  getVowelNumber(input[i], countWord);
 }
