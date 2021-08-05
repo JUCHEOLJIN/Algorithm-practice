@@ -48,3 +48,19 @@ for (let i = 0; i < input.length; i++) {
   }
   getVowelNumber(input[i], countWord);
 }
+
+// 굳이 switch 문을 쓰지 않아도 되도록 다시 작성
+const vowel = "aeiouAEIOU";
+
+for (let i = 0; i < input.length; i++) {
+  if (input[i] === "#") {
+    break;
+  }
+  let result = 0;
+  for (let j = 0; j < input[i].length; j++) {
+    if (vowel.includes(input[i][j])) {
+      result += 1;
+    }
+  }
+  console.log(result);
+}
