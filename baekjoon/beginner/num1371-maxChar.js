@@ -25,10 +25,10 @@ function maxChar(input) {
     }
   }
   for (let key in stringMap) {
-    // 완성된 객체에서 최대값보다 작은 것들을 제거하고 큰 것들은 배열로 넣기
-    if (stringMap[key] < max) {
-      delete stringMap[key];
-    }
+    // 완성된 객체에서 최대값보다 작은 것들을 제거하고 큰 것들은 배열로 넣기 // 굳이 제거할 필요 없음.
+    // if (stringMap[key] < max) {
+    //   delete stringMap[key];
+    // }
     if (stringMap[key] === max) {
       maxChar.push(key);
     }
